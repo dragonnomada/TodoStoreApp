@@ -226,6 +226,15 @@ struct ContentView: View {
                                 }
                             }
                         }
+                        .onDelete { indexSet in
+                            indexSet.forEach { index in
+                                let todo = todoStore.uncheckedTodos[index]
+                                
+                                DispatchQueue.main.async {
+                                    let _ = try? todoStore.removeTodo(withId: todo.id)
+                                }
+                            }
+                        }
                     }
                     
                     Section(header: Text("Completed")) {
@@ -235,15 +244,15 @@ struct ContentView: View {
                                 .italic()
                                 .foregroundColor(.secondary)
                         }
-//                        ForEach(Binding(get: {
-//                            todoStore.checkedTodos
-//                        }, set: { value, _ in
-//                            DispatchQueue.main.async {
-//                                value.forEach { todo in
-//                                    let _ = try? todoStore.editTodo(withId: todo.id, title: todo.title, checked: todo.checked)
-//                                }
-//                            }
-//                        }))
+                        //                        ForEach(Binding(get: {
+                        //                            todoStore.checkedTodos
+                        //                        }, set: { value, _ in
+                        //                            DispatchQueue.main.async {
+                        //                                value.forEach { todo in
+                        //                                    let _ = try? todoStore.editTodo(withId: todo.id, title: todo.title, checked: todo.checked)
+                        //                                }
+                        //                            }
+                        //                        }))
                         ForEach($todoStore.checkedTodos) { $todo in
                             NavigationLink {
                                 TodoDetails(
@@ -295,6 +304,15 @@ struct ContentView: View {
                                 }
                             }
                         }
+                        .onDelete { indexSet in
+                            indexSet.forEach { index in
+                                let todo = todoStore.checkedTodos[index]
+                                
+                                DispatchQueue.main.async {
+                                    let _ = try? todoStore.removeTodo(withId: todo.id)
+                                }
+                            }
+                        }
                     }
                 }
                 
@@ -318,9 +336,14 @@ struct ContentView: View {
                 
                 if !isLoaded {
                     let firstTodo = todoStore.addTodo(withTitle: "Sample 1")
-                    let _ = todoStore.addTodo(withTitle: "Sample 2")
                     
-                    let _ = try? todoStore.editTodo(withId: firstTodo.id, title: nil, checked: true)
+                    print(firstTodo)
+                    
+                    let secondTodo = todoStore.addTodo(withTitle: "Sample 2")
+                    
+                    print(secondTodo)
+                    
+                    let _ = try? todoStore.editTodo(withId: secondTodo.id, title: nil, checked: true)
                     
                     isLoaded = true
                 }
@@ -329,7 +352,10 @@ struct ContentView: View {
                 cancellable?.cancel()
                 cancellable = nil
             }
-        .padding()
+            .padding()
+            .toolbar {
+                EditButton()
+            }
         }
     }
 }
