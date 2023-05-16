@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import TodoStore
 
 @main
 struct TodoStoreAppApp: App {
+    @StateObject var todoStore = TodoStore()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(todoStore)
         }
     }
 }

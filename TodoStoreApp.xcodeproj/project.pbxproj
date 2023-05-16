@@ -14,6 +14,7 @@
 		EB32EEB92A12BAFA007A2085 /* TodoStoreAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB32EEB82A12BAFA007A2085 /* TodoStoreAppTests.swift */; };
 		EB32EEC32A12BAFA007A2085 /* TodoStoreAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB32EEC22A12BAFA007A2085 /* TodoStoreAppUITests.swift */; };
 		EB32EEC52A12BAFA007A2085 /* TodoStoreAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB32EEC42A12BAFA007A2085 /* TodoStoreAppUITestsLaunchTests.swift */; };
+		EB32EED32A12BB1B007A2085 /* TodoStore in Frameworks */ = {isa = PBXBuildFile; productRef = EB32EED22A12BB1B007A2085 /* TodoStore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB32EED32A12BB1B007A2085 /* TodoStore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +147,9 @@
 			dependencies = (
 			);
 			name = TodoStoreApp;
+			packageProductDependencies = (
+				EB32EED22A12BB1B007A2085 /* TodoStore */,
+			);
 			productName = TodoStoreApp;
 			productReference = EB32EEA32A12BAF8007A2085 /* TodoStoreApp.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +222,9 @@
 				Base,
 			);
 			mainGroup = EB32EE9A2A12BAF8007A2085;
+			packageReferences = (
+				EB32EED12A12BB1B007A2085 /* XCRemoteSwiftPackageReference "TodoStore" */,
+			);
 			productRefGroup = EB32EEA42A12BAF8007A2085 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -604,6 +612,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EB32EED12A12BB1B007A2085 /* XCRemoteSwiftPackageReference "TodoStore" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dragonnomada/TodoStore";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EB32EED22A12BB1B007A2085 /* TodoStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB32EED12A12BB1B007A2085 /* XCRemoteSwiftPackageReference "TodoStore" */;
+			productName = TodoStore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EB32EE9B2A12BAF8007A2085 /* Project object */;
 }

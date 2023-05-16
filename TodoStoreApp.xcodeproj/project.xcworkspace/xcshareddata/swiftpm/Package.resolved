@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "todostore",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dragonnomada/TodoStore",
+      "state" : {
+        "revision" : "f91197a00d7cb6824adf8847a25a30f9a29f96ba",
+        "version" : "1.0.6"
+      }
+    }
+  ],
+  "version" : 2
+}
